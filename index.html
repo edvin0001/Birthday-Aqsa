@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Find The Real Gift 🎁</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 900px;
+            height: 90vh;
+            position: relative;
+            border-radius: 25px;
+            backdrop-filter: blur(10px);
+        }
+
+        h1 {
+            position: absolute;
+            top: 20px;
+            width: 100%;
+            text-align: center;
+            color: white;
+            font-size: 2.5rem;
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .fake-box {
+            width: 180px;
+            height: 180px;
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            border-radius: 25px;
+            position: absolute;
+            cursor: pointer;
+            transition: 0.3s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 4rem;
+            user-select: none;
+        }
+
+        .fake-box:hover {
+            transform: scale(1.08) rotate(3deg);
+            background: rgba(255, 255, 255, 0.35);
+        }
+
+        /* Positions */
+
+        .box1 {
+            top: 120px;
+            left: 60px;
+        }
+
+        .box2 {
+            top: 120px;
+            right: 60px;
+        }
+
+        .box3 {
+            bottom: 80px;
+            left: 120px;
+        }
+
+        .box4 {
+            bottom: 80px;
+            right: 120px;
+        }
+
+        /* Tiny Real Box */
+
+        .real-box {
+            width: 18px;
+            height: 18px;
+            background: gold;
+            border-radius: 50%;
+            position: absolute;
+            top: 52%;
+            left: 49%;
+            cursor: pointer;
+            box-shadow: 0 0 15px gold;
+            transition: 0.2s;
+        }
+
+        .real-box:hover {
+            transform: scale(1.8);
+        }
+
+        .message {
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+            text-align: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 768px) {
+            .fake-box {
+                width: 130px;
+                height: 130px;
+                font-size: 3rem;
+            }
+
+            .box1 {
+                left: 20px;
+            }
+
+            .box2 {
+                right: 20px;
+            }
+
+            .box3 {
+                left: 40px;
+            }
+
+            .box4 {
+                right: 40px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Find The Real Gift 🎂</h1>
+
+        <div class="fake-box box1">🎁</div>
+        <div class="fake-box box2">🎁</div>
+        <div class="fake-box box3">🎁</div>
+        <div class="fake-box box4">🎁</div>
+
+        <!-- REAL SECRET BOX -->
+        <div class="real-box" id="realBox"></div>
+
+        <div class="message">
+            Only one gift leads to the surprise...
+        </div>
+
+    </div>
+
+    <script>
+      
+    </script>
+
+</body>
+<script>
+    const gifts = document.querySelectorAll('.fake-box');
+    const real = document.querySelector(".real-box");
+
+    gifts.forEach(gift => {
+        gift.addEventListener("click", () => {
+            alert("Not this one ;)");
+        })
+    })
+
+    real.addEventListener("click", () => {
+        window.location.href = "./main.html";
+    })
+</script>
+</html>

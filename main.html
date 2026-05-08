@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Surprise</title>
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&family=Dancing+Script:wght@600&display=swap"
+        rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #ff758c, #ff7eb3);
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            gap: 20px;
+        }
+
+        /* CARD */
+        main {
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(15px);
+            border-radius: 25px;
+            padding: 25px;
+            width: 100%;
+            max-width: 420px;
+            text-align: center;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        /* TITLE */
+        .wish {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.7rem;
+            color: white;
+            margin-bottom: 15px;
+            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* IMAGE */
+        .photo img {
+            width: 100%;
+            height: 400px;
+            /* object-fit: cover; */
+            border-radius: 20px;
+            border: 3px solid white;
+            margin-bottom: 15px;
+        }
+
+        /* MESSAGE */
+        .message p {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 15px;
+            border-radius: 15px;
+            color: white;
+            line-height: 1.6;
+        }
+
+        /* GAME SECTION */
+        .game {
+            width: 100%;
+            max-width: 420px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        /* GAME TITLE */
+        .title {
+            font-size: 1.5rem;
+            color: white;
+            font-weight: 500;
+            text-align: center;
+        }
+
+        /* TOP BAR */
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .score,
+        .clock {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px;
+            border-radius: 15px;
+            color: white;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        /* GAME BOX */
+        .container {
+            position: relative;
+            width: 100%;
+            height: 320px;
+            border-radius: 20px;
+            overflow: hidden;
+            background: linear-gradient(to bottom, #fff0f5, #ffe4e1);
+            box-shadow: inset 0 5px 15px rgba(0, 0, 0, 0.1),
+                0 10px 30px rgba(0, 0, 0, 0.2);
+
+            touch-action: none;
+        }
+
+        /* FALLING ITEM */
+        .box {
+            position: absolute;
+            font-size: 24px;
+            animation: float 2s infinite ease-in-out;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-3px);
+            }
+        }
+
+        /* BASKET */
+        .basket {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            /* transform: translateX(-50%); */
+            width: 120px;
+            height: 45px;
+            background: linear-gradient(135deg, #ff4d6d, #ff758c);
+            border-radius: 0 0 60px 60px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* RESULT */
+        .container2 {
+            min-height: 70px;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            font-size: 1.1rem;
+        }
+
+        /* BUTTONS */
+        .start_reset {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .design {
+            padding: 10px 18px;
+            border-radius: 20px;
+            border: none;
+            background: linear-gradient(135deg, #ff4d6d, #ff758c);
+            color: white;
+            font-size: 14px;
+            transition: all 0.25s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .design:hover {
+            transform: translateY(-2px) scale(1.05);
+            cursor: pointer;
+        }
+
+        /* MOBILE */
+        @media (max-width: 500px) {
+            .wish {
+                font-size: 2.2rem;
+            }
+
+            .container {
+                height: 280px;
+            }
+        }
+
+        .clock {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <main>
+        <div class="wish">
+            Happy Birthday <b>Aqsa</b>
+        </div>
+
+        <div class="photo">
+            <img src="WhatsApp Image 2026-05-08 at 9.30.13 AM.jpeg" alt="Birthday Photo">
+        </div>
+
+        <div class="message">
+            <p>
+                Wishing you a day filled with love, laughter, and unforgettable moments.
+                You truly deserve all the happiness in the world ❤️. May Allah(SWT) bless you and provide a happy and joyful life. Happy Birthday from your Zeeshu Bhai🎂🥳 
+            </p>
+        </div>
+
+    </main>
+
+    <main class="game">
+        <div class="title">Catch The Cake 🎂</div>
+
+        <div class="top-bar">
+            <div class="score">Score: <span id="score">0</span></div>
+            <div class="clock">
+                <p>00</p>
+                <p>:</p>
+                <p class="sec">30</p>
+            </div> <!-- Dummy -->
+        </div>
+
+        <div class="container">
+
+            <div class="basket"></div>
+        </div>
+
+        <div class="container2">
+
+        </div>
+        <div class="start_reset">
+            <a href="index.html">
+                <button class="Home design">Home</button>
+            </a>
+            <button class="start design">Start</button>
+            <button class="reset design">Reset</button>
+        </div>
+    </main>
+
+</body>
+<script>
+    const basket = document.querySelector('.basket');
+    const container = document.querySelector('.container');
+    const gameContainer = document.querySelector('.container');
+    const container2 = document.querySelector('.container2');
+    const scoreEl = document.getElementById('score');
+    const start = document.querySelector(".start");
+    const reset = document.querySelector(".reset");
+
+    let score = 0;
+    let intervals = [];
+
+
+
+    start.addEventListener("click", function () {
+        createHearts();
+        start.style.display = "none";
+        startTimer();
+
+    })
+    /* 🎮 MOVE BASKET */
+    container.addEventListener('pointermove', (e) => {
+        const rect = container.getBoundingClientRect();
+        let x = e.clientX - rect.left;
+
+        const maxX = container.clientWidth - basket.offsetWidth;
+
+        // Center basket properly WITHOUT overflow
+        x = x - basket.offsetWidth / 2;
+
+        // Clamp inside container perfectly
+        x = Math.max(0, Math.min(x, maxX));
+
+        basket.style.left = x + "px";
+    });
+
+    function fallMotion(box) {
+
+        const interval = setInterval(() => {
+
+            if (!box) {
+                clearInterval(interval);
+                return;
+            }
+
+            let top = parseFloat(box.style.top) || 0;
+            const maxTop = gameContainer.clientHeight - box.offsetHeight;
+
+            // 🧠 Get positions
+            const boxRect = box.getBoundingClientRect();
+            const basketRect = basket.getBoundingClientRect();
+
+            // 🎯 CATCH DETECTION
+            if (
+                boxRect.bottom >= basketRect.top &&
+                boxRect.right >= basketRect.left &&
+                boxRect.left <= basketRect.right
+            ) {
+                score++;
+                scoreEl.textContent = score;
+
+                box.remove();
+                clearInterval(interval);
+                return;
+            }
+
+            // ❌ MISS
+            if (top >= maxTop) {
+                box.remove();
+                clearInterval(interval);
+                return;
+            }
+
+            box.style.top = (top + 2) + "px";
+
+        }, 0.1);
+        intervals.push(interval);
+    }
+
+    /* ❤️ CREATE HEARTS */
+    function createHearts() {
+        const interval2 = setInterval(() => {
+
+            const ele = document.createElement('div');
+            ele.classList.add('box');
+            ele.textContent = "🎂";
+
+            const maxX = gameContainer.clientWidth - 30;
+            const randomX = Math.random() * maxX;
+
+            ele.style.left = randomX + "px";
+            ele.style.top = "0px";
+
+            gameContainer.appendChild(ele);
+
+            fallMotion(ele);
+
+        }, 500);
+        intervals.push(interval2);
+    }
+
+
+    //Clock LOGIC
+    function startTimer() {
+        const sec = document.querySelector('.sec');
+        let second = Number(document.querySelector('.sec').textContent);
+
+        const clock = setInterval(() => {
+            second--;
+            sec.textContent = second > 10 ? `${second}` : `0${second}`;
+            if (second == 0) {
+                clearInterval(clock);
+                intervals.forEach(i => clearInterval(i));
+                // container.innerHTML = "";
+                // document.querySelector('#final_score').textContent = score;
+                container2.innerHTML = `
+            <h1>Your Score : <b id="final_score" style="color: #ff9a9e">${score}</b></h1>
+            
+        `
+                document.querySelector('.reset').style.display = "block";
+            }
+        }, 1000);
+    }
+    reset.addEventListener("click", () => {
+        window.location.reload();
+    })
+</script>
+
+</html>
